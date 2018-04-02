@@ -12,13 +12,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Sequence
 from sqlalchemy.orm import scoped_session, mapper, sessionmaker
 from sqlalchemy.sql import func
+from config import REGBASE
 
 Base = declarative_base()
 
 class Register(Base):
     __tablename__ = 'dumpjrnl'
 
-    id = Column(Integer, Sequence('user_id_seq', primary_key=True)
+    id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
     boxname = Column(String, nullable=False)
     last_status = Column(String, nullable=False)
     count = Column(Integer, nullable=False, default=0)
@@ -36,9 +37,9 @@ class Register(Base):
                     % (self.id, self.boxname, self.last_status, self.count, \
                     self.lastrun_date)
 
-sqliteng = sqlalchemy.create_engine('sqlite:///'+regbase)
+sqliteng = sqlalchemy.create_engine('sqlite:///'+REGBASE)
 metadata= Base.metadata.create_all(sqliteng)
-sessioni_factory=sessionmaker(bind=sqliteng)
+session_factory=sessionmaker(bind=sqliteng)
 Session=scoped_session(session_factory)
 
 tpool = ThreadPool(4)
