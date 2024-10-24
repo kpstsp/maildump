@@ -13,6 +13,14 @@ The goal of this project is to provide a set of scripts that can be used to down
 - Support for multiple email protocols (IMAP, POP3).
 - Easy configuration and setup.
 
+## Roadmap
+- Re-write to py3
+- Download all emails as eml
+- Download and save as Mailbox (unix) format
+- Replace mailproc to newer version or change lib
+
+
+
 ## Installation
 
 1. Clone the repository:
