@@ -14,10 +14,9 @@ The goal of this project is to provide a set of scripts that can be used to down
 - Easy configuration and setup.
 
 ## Roadmap
-- Re-write to py3
-- Download all emails as eml
-- Download and save as Mailbox (unix) format
-- Replace mailproc to newer version or change lib
+DONE: Re-write to py3
+DONE: Download all emails as eml
+DONE: Download and save as Mailbox (unix) format
 
 
 
@@ -36,19 +35,10 @@ The goal of this project is to provide a set of scripts that can be used to down
 
 ## Usage
 
-1. Configure your email settings in the `config.json` file:
-    ```json
-    {
-        "email": "your-email@example.com",
-        "password": "your-email-password",
-        "server": "imap.example.com",
-        "port": 993
-    }
-    ```
-
-2. Run the script to download emails:
+Run the script to download emails:
     ```sh
-    python runsync.py
+    python download_mail.py --server your_imap_server --user your_email_address --format [eml|mbox]
+
     ```
 
 
